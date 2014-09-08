@@ -10,6 +10,7 @@ A simple application that helps your track your expenditure.
 	- name :string (optional)
 	- description :text (optional)
 	- date :date
+	- user_id :integer 
 - Category 
 	- name :string
 - ExpenditureCategory
