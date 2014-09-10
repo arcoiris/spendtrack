@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="well text-center">
+		<% if expenditure.name %>
+			<h1><%= expenditure.name %></h1>
+		<% end %>
+		<p>Amount: $<%= expenditure.amount %></p>
+		<% if expenditure.description %>
+			<p><%= expenditure.description %></p>
+		<% end %>
+	</div>
+</div>
