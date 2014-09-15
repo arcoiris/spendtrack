@@ -13,8 +13,9 @@ class ExpendituresController < ApplicationController
 		@expenditure.user = User.first #change this when sessions are added
 		if @expenditure.save
 			flash[:notice] = "Your expenditure has been added."
-			redirect_to :back
+			redirect_to new_expenditure_path
 		else
+			flash[:alert] = "Failed"
 			render 'new'
 		end
 	end
@@ -25,7 +26,7 @@ class ExpendituresController < ApplicationController
 	def update
 		if @expenditure.update(safe_params)
 			flash[:notice] = "Your expenditure has been updated."
-			redirect_to :back
+			redirect_to new_expenditure_path
 		else
 			render 'edit'
 		end
