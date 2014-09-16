@@ -1,9 +1,6 @@
 class ExpendituresController < ApplicationController
 	before_action :set_expenditure, only: [:edit, :update, :show, :destroy]
 
-	def index
-	end
-
 	def new
 		@expenditure = Expenditure.new
 	end
