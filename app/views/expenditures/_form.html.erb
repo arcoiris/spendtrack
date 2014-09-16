@@ -1,16 +1,14 @@
+<%= render 'shared/errors', object: @expenditure %>
+
 <div class="row">
 	<div class="panel small-10 small-centered columns">
-		<div class="small-11 small-centered columns">
-		<%= form_for @expenditure do |f|%>
+		<div class="small-8 small-centered columns">
+		<%= form_for @expenditure do |f| %>
 				<div class="row">
-					<%= f.label :name %> 
-					<%= f.text_field :name %>
-				</div>
-				<div class="row">
-					<%= f.label :amount %>
+					<%= f.label :amount, "Amount (required)" %>
 					<div class="row collapse">
 						<div class="small-2 large-1 columns">
-							<span class="prefix">$</span>
+							<span class="prefix">$</span><!-- currency symbol -->
 						</div>
 						<div class="small-10 large-11 columns">
 							<%= f.number_field :amount, min: 0, step: 0.05 %>
@@ -18,8 +16,16 @@
 					</div>
 				</div>
 				<div class="row">
+					<%= f.label :date, "Date (required)" %>
+					<%= f.date_field :date %>
+				</div>
+				<div class="row">
+					<%= f.label :name %> 
+					<%= f.text_field :name %>
+				</div>
+				<div class="row">
 					<%= f.label :description %>
-					<%= f.text_area :description %>
+					<%= f.text_area :description, rows: 5 %>
 				</div>
 				<div class="row">
 					<%= f.submit(@expenditure.new_record? ? "Add expenditure" : "Update expenditure", class: "button") %>
@@ -28,3 +34,4 @@
 		</div>
 	</div>
 </div>
+

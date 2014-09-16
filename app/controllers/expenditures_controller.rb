@@ -15,7 +15,6 @@ class ExpendituresController < ApplicationController
 			flash[:notice] = "Your expenditure has been added."
 			redirect_to new_expenditure_path
 		else
-			flash[:alert] = "Failed"
 			render 'new'
 		end
 	end
@@ -41,7 +40,7 @@ class ExpendituresController < ApplicationController
 	private
 
 	def safe_params
-		params.require(:expenditure).permit(:name, :amount, :description)
+		params.require(:expenditure).permit(:name, :amount, :description, :date)
 	end
 
 	def set_expenditure
