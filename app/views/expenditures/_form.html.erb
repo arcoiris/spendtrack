@@ -5,7 +5,7 @@
 		<div class="small-8 small-centered columns">
 		<%= form_for @expenditure do |f| %>
 				<div class="row">
-					<%= f.label :amount, "Amount (required)" %>
+					<%= f.label "Amount (required)" %>
 					<div class="row collapse">
 						<div class="small-2 large-1 columns">
 							<span class="prefix">$</span><!-- currency symbol -->
@@ -16,7 +16,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<%= f.label :date, "Date (required)" %>
+					<%= f.label "Date (required)" %>
 					<%= f.date_field :date %>
 				</div>
 				<div class="row">
@@ -26,6 +26,10 @@
 				<div class="row">
 					<%= f.label :description %>
 					<%= f.text_area :description, rows: 5 %>
+				</div>
+				<div class="row">
+				<%= f.label :categories %>
+				<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
 				</div>
 				<div class="row">
 					<%= f.submit(@expenditure.new_record? ? "Add expenditure" : "Update expenditure", class: "button") %>

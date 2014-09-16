@@ -11,6 +11,7 @@ class ExpendituresController < ApplicationController
 	def create
 		@expenditure = Expenditure.new(safe_params)
 		@expenditure.user = User.first #change this when sessions are added
+		binding.pry
 		if @expenditure.save
 			flash[:notice] = "Your expenditure has been added."
 			redirect_to new_expenditure_path
@@ -40,7 +41,7 @@ class ExpendituresController < ApplicationController
 	private
 
 	def safe_params
-		params.require(:expenditure).permit(:name, :amount, :description, :date)
+		params.require(:expenditure).permit(:name, :amount, :description, :date, category_ids: [])
 	end
 
 	def set_expenditure
