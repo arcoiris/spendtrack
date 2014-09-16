@@ -5,18 +5,28 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-categories = Category.create(
-		{ name: "groceries" }
-		{ name: "restaurants" }
-		{ name: "food" }
-		{ name: "medical" }
-		{ name: "clothing" }
-		{ name: "rent" }
-		{ name: "mortage" }
-		{ name: "other" }
-		{ name: "travel" }
-		{ name: "gym" }
-		{ name: "entertainment" }
-		{ name: "transportation" }
+puts "Beginning seeding!"
+categories = Category.create([
+		{ name: "groceries" },
+		{ name: "restaurants" },
+		{ name: "food" },
+		{ name: "medical" },
+		{ name: "clothing" },
+		{ name: "rent" },
+		{ name: "mortage" },
+		{ name: "other" },
+		{ name: "travel" },
+		{ name: "gym" },
+		{ name: "entertainment" },
+		{ name: "transportation" }]
 	)
+
+user = User.create(username: "tester")
+
+expenditure = Expenditure.create(name: "Whole Foods Shopping", description: "Got more than usual due to sale", amount: 125.30)
+
+user.expenditures << expenditure
+
+expenditure.categories << Category.first
+
+puts "End of seeding"
