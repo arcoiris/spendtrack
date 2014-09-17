@@ -19,14 +19,12 @@ categories = Category.create([
 		{ name: "gym" },
 		{ name: "entertainment" },
 		{ name: "transportation" }]
-	)
-
+)
 user = User.create(username: "tester")
 
-expenditure = Expenditure.create(name: "Whole Foods Shopping", description: "Got more than usual due to sale", amount: 125.30)
 
-user.expenditures << expenditure
+user.expenditures << Expenditure.new(name: "Whole Foods Shopping", description: "Got more than usual due to sale", amount: 125.30, date: Date.today)
 
-expenditure.categories << Category.first
+user.expenditures.first.categories << Category.first
 
 puts "End of seeding"
