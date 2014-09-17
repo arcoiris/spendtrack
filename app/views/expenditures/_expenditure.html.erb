@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="panel small-6 small-centered columns">
-		<h1>Amount: $<%= expenditure.amount %></h1>
+		<h1>Amount: <%= number_to_currency(expenditure.amount, precision: 2) %></h1>
 		<% if expenditure.name %>
 			<h2><%= expenditure.name %></h2>
 		<% end %>

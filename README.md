@@ -6,7 +6,7 @@ A simple application that helps your track your expenditure.
 	- username :string
  	- password :string
 - Expenditure
-	- amount :float
+	- amount :decimal
 	- name :string (optional)
 	- description :text (optional)
 	- date :date
