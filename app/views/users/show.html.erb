@@ -1,0 +1,5 @@
+<% if !@user.expenditures.empty? %>
+	<% @user.expenditures.each do |expenditure| %>
+		<%= render 'expenditures/expenditure', expenditure: expenditure %>
+	<% end %> 
+<% end %>

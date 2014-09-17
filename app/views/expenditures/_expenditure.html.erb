@@ -1,7 +1,11 @@
-<% if expenditure.name %>
-	<h1><%= expenditure.name %></h1>
-<% end %>
-<p>Amount: $<%= expenditure.amount %></p>
-<% if expenditure.description %>
-	<p><%= expenditure.description %></p>
-<% end %>
+<div class="row">
+	<div class="panel small-6 small-centered columns">
+		<h1>Amount: $<%= expenditure.amount %></h1>
+		<% if expenditure.name %>
+			<h2><%= expenditure.name %></h2>
+		<% end %>
+		<% if expenditure.description %>
+			<p><%= expenditure.description %></p>
+		<% end %>
+	</div>
+</div>
